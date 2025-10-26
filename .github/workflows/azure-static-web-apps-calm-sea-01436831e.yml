@@ -19,31 +19,33 @@ jobs:
           submodules: true
           lfs: false
 
-      # 1) Forzar Node 20 para el build (no Oryx)
-      - name: Setup Node.js
+      - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: '20.10.0'
           cache: 'npm'
 
-      # 2) Instalar dependencias (respetará tu .npmrc con legacy-peer-deps=true)
       - name: Install deps
         run: npm ci
 
-      # 3) Build + export (genera carpeta out/)
-      - name: Build & Export
+      - name: Build (Next 16 output: export)
         run: npm run build
 
-      # 4) Deploy: subir artefactos ya construidos (saltando build en Oryx)
+      # Paso de depuración (opcional pero útil)
+      - name: List build output
+        run: |
+          ls -la
+          ls -la out || true
+
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_SEA_01436831E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"                 # ruta del repo (fuente)
-          app_artifact_location: "out"      # carpeta exportada por Next.js
-          skip_app_build: true              # <-- clave: NO construir en Oryx
+          app_location: "/"
+          app_artifact_location: "out"   # <- debe existir
+          skip_app_build: true           # <- NO construir en Oryx
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
