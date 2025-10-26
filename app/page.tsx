@@ -565,7 +565,7 @@ export default function RevistaUMG() {
             <p className="text-xl text-muted-foreground leading-relaxed text-balance">
               Las Competencias UMG 2025 fueron más que una competencia: fueron una oportunidad para aprender, crecer y
               demostrar que con trabajo en equipo y dedicación, los límites son solo el comienzo. Giammattei no es solo
-              un robot, es el símbolo de nuestro esfuerzo y pasión por la robótica.
+              un robot, es el símbolo de nuestro esfuerzo y pasión por la ingeniería.
             </p>
           </div>
         </section>
