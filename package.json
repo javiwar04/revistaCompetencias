@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "npm install --legacy-peer-deps && next build && next export",
-    "start": "next start",
-    "lint": "eslint .",
-    "export": "next export"
-  },
+    "scripts": {
+  "dev": "next dev",
+  "build": "next build && next export",
+  "start": "next start",
+  "lint": "eslint .",
+  "export": "next export"
+}
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "1.2.2",
