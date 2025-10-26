@@ -23,15 +23,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.10.0'
-          cache: 'npm'
+          cache: npm
 
       - name: Install deps
         run: npm ci
 
-      - name: Build (Next 16 output: export)
+      - name: Build (Next 16 static export)
         run: npm run build
 
-      # Paso de depuración (opcional pero útil)
       - name: List build output
         run: |
           ls -la
@@ -42,10 +41,10 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_SEA_01436831E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
-          app_location: "/"
-          app_artifact_location: "out"   # <- debe existir
-          skip_app_build: true           # <- NO construir en Oryx
+          action: upload
+          app_location: /
+          app_artifact_location: out
+          skip_app_build: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -56,4 +55,4 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_SEA_01436831E }}
-          action: "close"
+          action: close
