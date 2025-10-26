@@ -501,8 +501,8 @@ export default function RevistaUMG() {
                 <h3 className="text-3xl font-bold mb-4">Tercer Lugar - Competencias UMG 2025</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                   Nuestro equipo de la Universidad Mariano Gálvez celebrando el logro del tercer lugar en las
-                  competencias de robótica. Meses de trabajo duro, dedicación y colaboración culminaron en este momento
-                  de orgullo y satisfacción. Cada miembro del equipo aportó sus habilidades únicas para hacer realidad
+                  competencias de robótica. Días de trabajo duro, dedicación y colaboración culminaron en este momento
+                  de satisfacción. Cada miembro del equipo aportó sus habilidades únicas para hacer realidad
                   este proyecto.
                 </p>
 
